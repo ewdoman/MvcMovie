@@ -1,0 +1,16 @@
+﻿@*
+    "A best practice: A view template should never perform business logic or interact with a database directly"
+    Can set the default Layout to 'null' so that no layout file will be used
+*@
+
+@*@{
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }*@
+
+@{
+    ViewBag.Title = "Spartan Companies";
+}
+
+<h2>My Spartan Company List</h2>
+
+<p>Hello from our View Template!</p>
