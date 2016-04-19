@@ -149,8 +149,11 @@ namespace MvcMovie.Controllers
         }
 
         // POST: Movies/Delete/5
+        /*Gives the ActionResult the ActionName "Delete" in order to perform the corrct mapping for the routing system.
+        * This is needed because overloaded methods require unique parameters in CLR 
+        * however we want two ActionResults (One for POST and one for GET) that use the same parameter count and type i.e. just one int
+        */
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             Movie movie = db.Movies.Find(id);
