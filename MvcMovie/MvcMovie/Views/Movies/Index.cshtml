@@ -8,6 +8,19 @@
 
 <p>
     @Html.ActionLink("Create New", "Create")
+
+    @*
+        Allow for UI search of Movie information
+    *@
+
+    @using (Html.BeginForm("Index", "Movies", FormMethod.Get))
+    {
+    <p>
+        Genre: @Html.DropDownList("movieGenre", "All")
+        Title: @Html.TextBox("SearchString") <br />
+        <input type="submit" value="Filter" />
+    </p>
+    }
 </p>
 <table class="table">
     <tr>
@@ -41,6 +54,11 @@
             @Html.DisplayFor(modelItem => item.Price)
         </td>
         <td>
+            @*
+            Actionlink method makes it easy to dynamically generate HMTL hyperlinks that link to action methods on controllers.
+            Args: rendered text link, name of action method to invoke, anonymous object that generates the route data Example: ID = 4 (http://localhost:xxxx/Movies/Edit/4)
+            Note: The MapRoute method is used to route HTTP requests to the correct controllers (in this case parameter ID = 4)
+            *@
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ID })
